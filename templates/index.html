@@ -19,9 +19,18 @@
       <ul class="todo__lists">
         {% for todo in todo_list %}
         <div class="todo">
-          <li>{{todo.title}}</li>
-          <button class="active__button" type="button">&#10003;</button>
-          <button class="trash__button" type="button">&times;</button>
+          <li class="{% if todo.complete %}todo__active{% else %}{% endif %}">
+            {{todo.title}}
+          </li>
+          <a
+            href="/todo-complete/{{todo.id}}"
+            class="active__button"
+            type="button"
+            >&#10003;</a
+          >
+          <a href="/todo-delete/{{todo.id}}" class="trash__button" type="button"
+            >&times;</a
+          >
           <span class="todo__date">{{todo.created_at}}</span>
         </div>
         {% endfor %}

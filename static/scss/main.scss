@@ -72,16 +72,22 @@ section {
       position: relative;
       li {
         flex: 1;
+        &.todo__active {
+          text-decoration: line-through;
+          opacity: 0.4;
+        }
       }
       .active__button {
         padding: 0.5rem 1rem;
         border: none;
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: bold;
         height: 2.5rem;
+        line-height: 1.6rem;
         background: #7dca8b;
         color: #fff;
         display: inline-block;
+        text-decoration: none;
         cursor: pointer;
         &:hover {
           background: #52a461;
@@ -90,9 +96,11 @@ section {
       .trash__button {
         padding: 0.5rem 1rem;
         border: none;
-        font-size: 1rem;
+        font-size: 1.2rem;
         height: 2.5rem;
+        display: inline-block;
         font-weight: bold;
+        text-decoration: none;
         color: #fff;
         background: #e15d51;
         cursor: pointer;
@@ -107,10 +115,13 @@ section {
         font-size: 0.55rem;
         font-weight: lighter;
         color: #bfbfbf;
+        transition: opacity 0.2s ease;
+        opacity: 0;
       }
-      &.todo-active {
-        text-decoration: line-through;
-        opacity: 0.4;
+      &:hover {
+        .todo__date {
+          opacity: 1;
+        }
       }
     }
   }

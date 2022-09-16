@@ -27,7 +27,7 @@ def index():
     return render_template("index.html", todo_list=todo_list)
 
 
-@app.route("/todo-add", methods=["POST"])
+@app.route("/todo-add", methods=["POST"])  # todo add route
 def add_todo():
     # form (title) query string
     title = request.form.get("title")
@@ -38,6 +38,30 @@ def add_todo():
     # todo commit ->
     db.session.commit()
 
+    return redirect(url_for("index"))
+
+
+@app.route("/todo-complete/<int:todo_id>")  # todo complete route
+def todo_complete(todo_id):
+    # filter todos with query string
+    todo = Todo.query.filter_by(id=todo_id).first()
+    # todo complete (value) sets opposite value
+    todo.complete = not todo.complete
+    # todo commit
+    db.session.commit()
+
+    return redirect(url_for("index"))
+
+
+@app.route("/todo-delete/<int:todo_id>")  # todo delete route
+def delete_complete(todo_id):
+    # filter todos with query string
+    todo = Todo.query.filter_by(id=todo_id).first()
+    # todo deletes from data base
+    db.session.delete(todo)
+    # todo commit
+    db.session.commit()
+    # browser redirect to (home)
     return redirect(url_for("index"))
 
 
