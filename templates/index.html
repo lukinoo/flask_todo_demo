@@ -8,6 +8,15 @@
     <title>Todo App Flask</title>
   </head>
   <body>
-    <h1>hey, world</h1>
+    <header>
+      <h3>Todo List with Flask</h3>
+    </header>
+    <form action="POST">
+      <input type="text" placeholder="Enter todo..." name="title" />
+      <button type="submit">+</button>
+    </form>
+    {% for i in range(0,10) %}
+    <div>{{i}}</div>
+    {% endfor %}
   </body>
 </html>
