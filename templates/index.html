@@ -12,8 +12,14 @@
       <h3>Todo List with Flask</h3>
     </header>
     <form action="/todo-add" method="post">
-      <input autofocus type="text" placeholder="Enter todo..." name="title" />
-      <button type="submit">+</button>
+      <input
+        id="todo__input"
+        autofocus
+        type="text"
+        placeholder="Enter todo..."
+        name="title"
+      />
+      <button disabled id="todo__button" type="submit">+</button>
     </form>
     <section>
       <ul class="todo__lists">
@@ -36,5 +42,7 @@
         {% endfor %}
       </ul>
     </section>
+
+    <script src="../static/dist/index.js" defer></script>
   </body>
 </html>

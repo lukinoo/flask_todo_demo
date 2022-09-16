@@ -24,6 +24,7 @@ class Todo(db.Model):
 def index():
     # all todos
     todo_list = Todo.query.all()
+
     return render_template("index.html", todo_list=todo_list)
 
 

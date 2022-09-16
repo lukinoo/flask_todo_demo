@@ -213,7 +213,6 @@ section .todo__lists .todo {
   padding-left: 0.5rem;
   margin: 0.4rem 0rem;
   background: #f1f1f1;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
 }
 
