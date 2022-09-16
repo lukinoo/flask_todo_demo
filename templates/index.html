@@ -11,12 +11,21 @@
     <header>
       <h3>Todo List with Flask</h3>
     </header>
-    <form action="POST">
-      <input type="text" placeholder="Enter todo..." name="title" />
+    <form action="/todo-add" method="post">
+      <input autofocus type="text" placeholder="Enter todo..." name="title" />
       <button type="submit">+</button>
     </form>
-    {% for i in range(0,10) %}
-    <div>{{i}}</div>
-    {% endfor %}
+    <section>
+      <ul class="todo__lists">
+        {% for todo in todo_list %}
+        <div class="todo">
+          <li>{{todo.title}}</li>
+          <button class="active__button" type="button">&#10003;</button>
+          <button class="trash__button" type="button">&times;</button>
+          <span class="todo__date">{{todo.created_at}}</span>
+        </div>
+        {% endfor %}
+      </ul>
+    </section>
   </body>
 </html>
