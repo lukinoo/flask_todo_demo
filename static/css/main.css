@@ -148,7 +148,7 @@ body {
 }
 
 header {
-  min-height: 15vh;
+  min-height: 12vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,7 +196,7 @@ form button {
 }
 
 section {
-  min-height: 70vh;
+  min-height: 73vh;
   display: flex;
   justify-content: center;
 }
