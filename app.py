@@ -55,7 +55,7 @@ def todo_complete(todo_id):
 
 
 @app.route("/todo-delete/<int:todo_id>")  # todo delete route
-def delete_complete(todo_id):
+def todo_delete(todo_id):
     # filter todos with query string
     todo = Todo.query.filter_by(id=todo_id).first()
     # todo deletes from data base
