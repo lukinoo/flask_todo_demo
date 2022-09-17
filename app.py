@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
@@ -64,6 +65,21 @@ def todo_delete(todo_id):
     db.session.commit()
     # browser redirect to (home)
     return redirect(url_for("index"))
+
+
+@app.route("/all-todos")
+def all_todos():
+    # all todos
+    todo_list = Todo.query.all()
+    # array with dicts
+    todo_res = []
+
+    for todo in todo_list:
+        # each object appends here
+        todo_res.append(
+            {"id": todo.id, "complete": todo.complete, "title": todo.title})
+
+    return todo_res
 
 
 if __name__ == '__main__':
